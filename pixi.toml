@@ -1,0 +1,23 @@
+[workspace]
+name = "personal-website"
+version = "0.1.0"
+description = "Personal website — research, consulting, and projects. Static site hosted on GitHub Pages."
+authors = ["Terry Chern <170845059+chernterry@users.noreply.github.com>"]
+channels = ["conda-forge"]
+# win-64 included so the same environment resolves on a Windows machine
+platforms = ["linux-64", "win-64"]
+
+[dependencies]
+python = "3.12.*"
+pillow = ">=10.0"        # image resizing / compression for the photo sections
+
+[tasks]
+# Local preview at http://localhost:8000 — this is the whole dev loop for a static site
+dev = "python -m http.server 8000"
+
+# Resize + compress everything in assets/img/_raw into web-ready files in assets/img
+# Drop full-size camera photos in _raw, run this, commit only the optimized output.
+optimize-images = "python scripts/optimize_images.py"
+
+# Sanity check before pushing: flags placeholder text you forgot to replace
+check = "python scripts/check_placeholders.py"

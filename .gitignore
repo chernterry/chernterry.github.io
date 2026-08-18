@@ -1,0 +1,24 @@
+# pixi
+.pixi/
+*.lock.tmp
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+
+# full-size source images — only the optimized output in assets/img/ gets committed
+assets/img/_raw/
+
+# editor / OS
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# personal notes / drafts
+website_prompt.txt
+drafts/
+*.draft.md
